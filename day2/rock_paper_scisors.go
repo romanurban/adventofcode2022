@@ -26,7 +26,7 @@ func main() {
 		"scissors": 9,
 	}
 
-	loseScores := map[string]int{
+	looseScores := map[string]int{
 		"rock":     1,
 		"paper":    2,
 		"scissors": 3,
@@ -39,7 +39,7 @@ func main() {
 	}
 
 	roundEndDict := map[string]string{
-		"X": "lose",
+		"X": "loose",
 		"Y": "draw",
 		"Z": "win",
 	}
@@ -68,11 +68,11 @@ func main() {
 			outcome = "win"
 			roundScore = winScores[dict[secondVal]]
 		case dict[opMove] == "rock" && dict[secondVal] == "scissors":
-			outcome = "lose"
-			roundScore = loseScores[dict[secondVal]]
+			outcome = "loose"
+			roundScore = looseScores[dict[secondVal]]
 		case dict[opMove] == "paper" && dict[secondVal] == "rock":
-			outcome = "lose"
-			roundScore = loseScores[dict[secondVal]]
+			outcome = "loose"
+			roundScore = looseScores[dict[secondVal]]
 		case dict[opMove] == "paper" && dict[secondVal] == "scissors":
 			outcome = "win"
 			roundScore = winScores[dict[secondVal]]
@@ -80,8 +80,8 @@ func main() {
 			outcome = "win"
 			roundScore = winScores[dict[secondVal]]
 		case dict[opMove] == "scissors" && dict[secondVal] == "paper":
-			outcome = "lose"
-			roundScore = loseScores[dict[secondVal]]
+			outcome = "loose"
+			roundScore = looseScores[dict[secondVal]]
 		}
 
 		totalStrategyScore += roundScore
@@ -103,7 +103,7 @@ func main() {
 				myProjMove = "rock"
 			}
 			roundScoreAlt = winScores[myProjMove]
-		case roundEndDict[secondVal] == "lose":
+		case roundEndDict[secondVal] == "loose":
 			switch dict[opMove] {
 			case "rock":
 				myProjMove = "scissors"
@@ -112,7 +112,7 @@ func main() {
 			case "scissors":
 				myProjMove = "paper"
 			}
-			roundScoreAlt = loseScores[myProjMove]
+			roundScoreAlt = looseScores[myProjMove]
 		}
 
 		totalStrategyScoreAlt += roundScoreAlt

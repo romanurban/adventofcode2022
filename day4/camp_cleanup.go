@@ -24,6 +24,7 @@ func main() {
 
 	scanner := bufio.NewScanner(file)
 	pairsWithRangeIntersect := 0
+	pairsIntersect := 0
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
 		groupRanges := strings.Split(line, ",")
@@ -41,11 +42,17 @@ func main() {
 		if len(intersect) == len(groupFrstSlice) || len(intersect) == len(groupScndSlice) {
 			pairsWithRangeIntersect++
 		}
+
+		if len(intersect) > 0 {
+			pairsIntersect++
+		}
+
 		fmt.Println(line)
 		fmt.Println(groupFrstSlice, groupScndSlice)
 	}
 
-	fmt.Println(pairsWithRangeIntersect)
+	fmt.Println("Num of pairs with range full overlap", pairsWithRangeIntersect)
+	fmt.Println("Num of pairs intersect", pairsIntersect)
 }
 
 func Intersection(a, b []int) (c []int) {
